@@ -1,0 +1,231 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Stock quote service",
+    "version": "1.0.0",
+    "title": "StockquoteService",
+    "contact": {
+      "name": "Afkham Azeez",
+      "url": "http://wso2.com",
+      "email": "azeez@wso2.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "basePath": "/stockquote",
+  "tags": [
+    {
+      "name": "stockquote"
+    }
+  ],
+  "paths": {
+    "/stockquote": {
+      "get": {
+        "tags": [
+          "stockquote"
+        ],
+        "summary": "Return stock quote corresponding to the symbol",
+        "description": "Returns HTTP 404 if the symbol is not found",
+        "operationId": "getQuoteUsingCookieParam",
+        "produces": [
+          "application/json",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "cookie",
+            "description": "Symbol",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valid stock item found"
+          },
+          "404": {
+            "description": "Stock item not found"
+          }
+        },
+        "x-auth-type": "Application \u0026 Application User",
+        "x-throttling-tier": "Unlimited"
+      },
+      "post": {
+        "tags": [
+          "stockquote"
+        ],
+        "summary": "Add a stock item",
+        "description": "Add a valid stock item",
+        "operationId": "addStock",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Stock object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Stock"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "x-auth-type": "Application \u0026 Application User",
+        "x-throttling-tier": "Unlimited"
+      }
+    },
+    "/stockquote/all": {
+      "get": {
+        "tags": [
+          "stockquote"
+        ],
+        "summary": "Get all stocks",
+        "description": "Returns all stock items",
+        "operationId": "getAllStocks",
+        "produces": [
+          "application/json",
+          "text/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Stocks"
+              }
+            }
+          }
+        },
+        "x-auth-type": "Application \u0026 Application User",
+        "x-throttling-tier": "Unlimited"
+      },
+      "options": {
+        "tags": [
+          "stockquote"
+        ],
+        "summary": "Get supported reuest methods",
+        "description": "Return a response with headers that show the supported HTTP Requests on the Request-URI",
+        "operationId": "getCommunicationInformationForRequestURI",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "x-auth-type": "Application \u0026 Application User",
+        "x-throttling-tier": "Unlimited"
+      }
+    },
+    "/stockquote/{symbol}": {
+      "get": {
+        "tags": [
+          "stockquote"
+        ],
+        "summary": "Return stock quote corresponding to the symbol",
+        "description": "Returns HTTP 404 if the symbol is not found",
+        "operationId": "getQuote",
+        "produces": [
+          "application/json",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Symbol",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valid stock item found"
+          },
+          "404": {
+            "description": "Stock item not found"
+          }
+        },
+        "x-auth-type": "Application \u0026 Application User",
+        "x-throttling-tier": "Unlimited"
+      },
+      "head": {
+        "tags": [
+          "stockquote"
+        ],
+        "summary": "Returns headers of corresponding GET request ",
+        "description": "Returns metainformation contained in the HTTP header identical to the corresponding GET Request",
+        "operationId": "getMetaInformationForQuote",
+        "produces": [
+          "application/json",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "Symbol",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        },
+        "x-auth-type": "Application \u0026 Application User",
+        "x-throttling-tier": "Unlimited"
+      }
+    }
+  },
+  "definitions": {
+    "Stocks": {
+      "type": "object",
+      "properties": {
+        "stocks": {
+          "type": "array",
+          "xml": {
+            "name": "stock"
+          },
+          "items": {
+            "$ref": "#/definitions/Stock"
+          }
+        }
+      }
+    },
+    "Stock": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "last": {
+          "type": "number",
+          "format": "double"
+        },
+        "low": {
+          "type": "number",
+          "format": "double"
+        },
+        "high": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    }
+  }
+}

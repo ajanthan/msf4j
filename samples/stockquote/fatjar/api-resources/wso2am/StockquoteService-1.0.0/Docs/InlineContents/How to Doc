@@ -1,0 +1,127 @@
+<div>
+        <hr><h3 id="doc_quote">Quote</h3>
+        <div class="url">http://dev.markitondemand.com/Api/v2/Quote</div>
+        <p>The Quote method requires the following input parameters</p>
+        <div class="typedef">
+          <table class="table table-striped table-bordered" cellspacing="0">
+            <tbody>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td class="name">symbol</td>
+                <td class="type">String</td>
+                <td class="description">Ticker symbol</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>When successful, the Quote method returns a serialized StockQuote object.</p>
+        <div class="typedef">
+          <h4>StockQuote</h4>
+          <table class="table table-striped table-bordered" cellspacing="0">
+            <tbody>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td class="name">Status</td>
+                <td class="type">String</td>
+                <td class="description">Status of quote request</td>
+              </tr>
+              <tr>
+                <td class="name">Name</td>
+                <td class="type">String</td>
+                <td class="description">Name of the company</td>
+              </tr>
+              <tr>
+                <td class="name">Symbol</td>
+                <td class="type">String</td>
+                <td class="description">The company's ticker symbol</td>
+              </tr>
+              <tr>
+                <td class="name">LastPrice</td>
+                <td class="type">Double</td>
+                <td class="description">The last price of the company's stock</td>
+              </tr>
+              <tr>
+                <td class="name">Change</td>
+                <td class="type">Double</td>
+                <td class="description">The change in price of the company's stock since the previous trading day's close</td>
+              </tr>
+              <tr>
+                <td class="name">ChangePercent</td>
+                <td class="type">Double</td>
+                <td class="description">The change percent in price of the company's stock since the previous trading day's close</td>
+              </tr>
+              <tr>
+                <td class="name">Timestamp</td>
+                <td class="type">String</td>
+                <td class="description">The last time the company's stock was traded in exchange-local timezone. Represented as ddd MMM d HH:mm:ss UTCzzzzz yyyy</td>
+              </tr>
+              <tr>
+                <td class="name">MSDate</td>
+                <td class="type">Double</td>
+                <td class="description">The last time the company's stock was traded in exchange-local timezone. Represented as an OLE Automation date</td>
+              </tr>
+              <tr>
+                <td class="name">MarketCap</td>
+                <td class="type">Double</td>
+                <td class="description">The company's market cap</td>
+              </tr>
+              <tr>
+                <td class="name">Volume</td>
+                <td class="type">Int32</td>
+                <td class="description">The trade volume of the company's stock</td>
+              </tr>
+              <tr>
+                <td class="name">ChangeYTD</td>
+                <td class="type">Double</td>
+                <td class="description">The change in price of the company's stock since the start of the year</td>
+              </tr>
+              <tr>
+                <td class="name">ChangePercentYTD</td>
+                <td class="type">Double</td>
+                <td class="description">The change percent in price of the company's stock since the start of the year</td>
+              </tr>
+              <tr>
+                <td class="name">High</td>
+                <td class="type">Double</td>
+                <td class="description">The high price of the company's stock in the trading session</td>
+              </tr>
+              <tr>
+                <td class="name">Low</td>
+                <td class="type">Double</td>
+                <td class="description">The low price of the company's stock in the trading session</td>
+              </tr>
+              <tr>
+                <td class="name">Open</td>
+                <td class="type">Double</td>
+                <td class="description">The opening price of the company's stock at the start of the trading session</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>If an error occurs, the Quote method returns a serialized Error object.</p>
+        <div class="typedef">
+          <h4>Error</h4>
+          <table class="table table-striped table-bordered" cellspacing="0">
+            <tbody>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td class="name">Message</td>
+                <td class="type">String</td>
+                <td class="description">If the inputs are not valid, the Message will contain a description of why the request could not proceed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

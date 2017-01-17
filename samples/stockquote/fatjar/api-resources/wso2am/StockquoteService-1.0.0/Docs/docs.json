@@ -1,0 +1,11 @@
+[
+  {
+    "id": "af54c2de-fb0e-4174-bcf6-e9c769c5701e",
+    "type": "HOWTO",
+    "name": "How to Doc",
+    "summary": "This is a sample ",
+    "sourceType": "INLINE",
+    "visibility": "API_LEVEL",
+    "lastUpdated": "Jan 16, 2017 9:12:32 PM"
+  }
+]
